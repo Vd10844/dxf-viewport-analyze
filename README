@@ -1,0 +1,158 @@
+Here's a README that is tailored to your project and is likely to attract more stars from CAD, survey, and DXF developers.
+
+# DXF Viewport Analyzer
+
+Automated analysis of paper-space viewports in DXF drawings.
+
+DXF Viewport Analyzer inspects layouts, detects viewport configurations, extracts viewport properties, maps viewport content, and generates reports for CAD quality control workflows.
+
+## Features
+
+✅ Detect paper-space layouts
+
+✅ Detect and enumerate viewports
+
+✅ Extract viewport properties
+- Center point
+- Width and height
+- Scale
+- View center
+- View target
+- Twist angle
+- Lock status
+
+✅ Analyze viewport geometry
+
+✅ Determine model-space entities visible through each viewport
+
+✅ Generate viewport inventories
+
+✅ Export results as JSON
+
+✅ Support automated QC workflows
+
+## Example Output
+
+```json
+{
+  "layout": "Sheet 1",
+  "viewport_count": 2,
+  "viewports": [
+    {
+      "viewport_id": 1,
+      "scale": "1:100",
+      "locked": true,
+      "visible_entities": 245
+    },
+    {
+      "viewport_id": 2,
+      "scale": "1:50",
+      "locked": true,
+      "visible_entities": 83
+    }
+  ]
+}
+
+Why This Project?
+
+Most DXF tools focus on geometry inside model space.
+
+This project focuses on what users actually see on plotted sheets:
+
+Layouts
+Viewports
+Scales
+Visible content
+Sheet composition
+
+This enables automated CAD quality control and sheet validation.
+
+Use Cases
+Survey Drawing Validation
+
+Verify:
+
+Required information appears on sheets
+Viewports are correctly scaled
+Viewports are locked
+Expected entities are visible
+CAD Quality Control
+
+Identify:
+
+Missing viewports
+Empty viewports
+Incorrect scales
+Viewports showing unintended content
+Automated Reporting
+
+Generate viewport reports for:
+
+Survey drawings
+Plat maps
+Civil engineering plans
+Construction drawings
+Architecture
+DXF File
+    │
+    ▼
+Layout Detection
+    │
+    ▼
+Viewport Extraction
+    │
+    ▼
+Viewport Analysis
+    │
+    ▼
+Content Mapping
+    │
+    ▼
+QC Report Generation
+
+Example
+python analyze.py sample.dxf
+
+
+Output:
+
+Layouts Found: 3
+
+Layout: Sheet 1
+  Viewports: 2
+
+Layout: Sheet 2
+  Viewports: 1
+
+Layout: Detail Sheet
+  Viewports: 4
+
+Roadmap
+Phase 1
+ Layout extraction
+ Viewport detection
+ Viewport property extraction
+Phase 2
+ Viewport content mapping
+ Scale validation
+ Viewport overlap detection
+ Empty viewport detection
+Phase 3
+ Survey-sheet QC
+ Title-block validation
+ Order-to-DXF verification
+ AI-assisted drawing review
+Technologies
+Python
+ezdxf
+DXF R2010+
+JSON Reporting
+Example Applications
+Survey QC
+Plat map verification
+Civil engineering review
+CAD automation
+Drawing audit tools
+Contributing
+
+Contributions are welcome. Feel free to open issues, suggest improvements, or submit pull requests.
